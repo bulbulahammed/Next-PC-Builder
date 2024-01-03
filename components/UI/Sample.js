@@ -44,22 +44,22 @@ const Sample = () => {
                     height={300}
                     />
                 </div>
-                <div className="w-1/3 text-center">
+                <div className="w-1/3 text-left">
                     <div>
-                      <h2>Processor</h2>
-                      <p>Processor</p>
+                      <h2 className="text-xl my-2">Processor</h2>
+                      <p>Intel 10 Gen or <br/> Ryzen 3000 Processors</p>
                     </div>
                     <div>
-                      <h2>Graphics Card</h2>
-                      <p>Processor</p>
+                      <h2 className="text-xl my-2">Graphics Card</h2>
+                      <p>Up to NVEDIA <br/> GeFOrce RTX 3080</p>
                     </div>
                     <div>
-                      <h2>Memory</h2>
-                      <p>Processor</p>
+                      <h2 className="text-xl my-2">Memory</h2>
+                      <p>32GB Ultra-fast <br/> 3800mhz Memory</p>
                     </div>
                     <div>
-                      <h2>Cooling</h2>
-                      <p>Processor</p>
+                      <h2 className="text-xl my-2">Cooling</h2>
+                      <p>Premium Custom <br/>  Water Cooled CPU</p>
                     </div>
                 </div>
             </div>
