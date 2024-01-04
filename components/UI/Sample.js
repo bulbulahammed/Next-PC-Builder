@@ -5,8 +5,8 @@ import { FaRegCheckCircle } from "react-icons/fa";
 const Sample = () => {
     return (
         <div className="bg-black text-white">
-            <div className="flex place-content-center items-center mx-10 py-20">
-                <div className="w-1/3 text-left">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-10 py-20">
+                <div className="text-left">
                     <div className=" text-3xl md:text-4xl lg:text-5xl font-bold">
                         <h3>Brand New Beast</h3>
                     </div>
@@ -36,7 +36,7 @@ const Sample = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-1/3 text-center">
+                <div className="text-center">
                 <Image
                     src={pc_black}
                     alt="Picture of the author"
@@ -44,7 +44,7 @@ const Sample = () => {
                     height={300}
                     />
                 </div>
-                <div className="w-1/3 text-left">
+                <div className="text-left">
                     <div>
                       <h2 className="text-xl my-2">Processor</h2>
                       <p>Intel 10 Gen or <br/> Ryzen 3000 Processors</p>
