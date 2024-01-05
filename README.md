@@ -1,41 +1,63 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Welcome to PC Builder
+
+🚀 Dive into the world of seamless web development with [Your Project Name], powered by Next.js 14!
+
+##About the Project
+PC Builder is a dynamic and modern web application built on the latest Next.js framework. Offering a powerful and intuitive development experience, this project empowers you to create robust and responsive web applications effortlessly.
+
+## Live Site
+
+Visit the live site at:
+[PC Builder](https://visionary-hummingbird-cdefa0.netlify.app//)
+
+## GitHub Repositories
+
+1. [Frontend](https://github.com/bulbulahammed/Next-PC-Builder)
+
+## Features
+
+### Home Page
+
+- Site banner for a welcoming user experience.
+- Display of the Random PC Component.
+- Category will help user to Navigate Easily.
+- Contact information in the Help section will make easy communication.
+- And Minimal Footer.
+
+### User Authentication
+
+- Visitors can sign up and sign in to the platform.
+- Authenticated users have the ability to select Component and Build Dream PC.
+- Enough Collection of components to build pc.
+
+### Product Details
+
+- Displaying Product Image to visualize the Product.
+- Component name and Category.
+- Can See the Rating and status.
+
+### PC Builder Page
+
+- To Access user Need to log in.
+- Selected Component will Display Here.
+- After Selected Essential Component user Can Complete their build.
 
 ## Getting Started
 
-First, run the development server:
+To set up the project locally, follow these steps:
+
+- Clone the frontend repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/bulbulahammed/Next-PC-Builder
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Install dependencies and start the frontend application:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
+cd next-pc-builder
+npm install
+npm run dev
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# Next-PC-Builder
+Now, you can access the application locally at http://localhost:3000/.
