@@ -15,7 +15,7 @@ const Components = () => {
             <div className='mx-10'>
                 {/* Heading */}
             <div className="text-left">
-                <h2 className="text-2xl font-bold">Components</h2>
+                <h2 className="text-3xl font-bold">Components</h2>
             </div>
             {/* Content */}
                 <div className="py-10">

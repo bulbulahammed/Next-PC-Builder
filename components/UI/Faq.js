@@ -6,13 +6,13 @@ const Faq = () => {
             <div className="mx-10">
                 {/* Heading */}
                 <div className="text-center">
-                    <h2 className="text-3xl font-bold">Frequently Asked Questions</h2>
+                    <h2 className="text-3xl font-bold mb-3">Frequently Asked Questions</h2>
                     <p>Most Asked Question All At One Place</p>
                     {/* Content */}
                     <div className="py-20">
                         {/* Single Question And Answer */}
                         <div className="collapse collapse-plus rounded-none border-b border-gray-300">
-                            <input type="radio" name="accordion-"  checked="checked"/> 
+                            <input type="radio" name="accordion-3"/> 
                             <div className="collapse-title text-xl font-medium">
                                 Can I Customize my own PC using Components From Your Website?
                             </div>
