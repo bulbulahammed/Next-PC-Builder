@@ -1,5 +1,6 @@
 import PC from "@/assets/images/pc.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const Banner = () => {
     return (
@@ -13,10 +14,14 @@ const Banner = () => {
                </div>
                <div className="flex place-content-center md:place-content-start">
                     <div className="text-white mr-2 text-center">
+                    <Link className="my-4" href="/prebuild">
                         <button className="btn text-white rounded bg-black hover:bg-white hover:text-black">Pre-Build</button>
+                    </Link>
                     </div>
                     <div className="ml-2">
+                    <Link className="my-4" href="/pcbuilder">
                         <button className="btn  rounded text-black bg-white hover:bg-black hover:text-white">Build Yourself</button>
+                    </Link>
                     </div>
                </div>
             </div>

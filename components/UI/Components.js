@@ -20,7 +20,7 @@ const Components = () => {
             {/* Content */}
                 <div className="py-10">
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-center">
-                    <Link className="my-4" href="/processor">
+                    <Link className="my-4" href="PCcomponents/processor">
                         <div className="m-1 text-center">
                             <div className="flex justify-center">
                                 <Image
@@ -34,21 +34,7 @@ const Components = () => {
                             <h3 className="pt-3">Processor</h3>
                         </div>
                     </Link>
-                    <Link className="my-4" href="/graphicsCard">
-                        <div className="  m-1 text-center">
-                            <div className="flex justify-center">
-                                <Image
-                                    className="rounded"
-                                    src={graphicsCard}
-                                    alt="Picture of the author"
-                                    width={100}
-                                    height={100}
-                                    />
-                            </div>
-                            <h3 className="pt-3">Graphics Card</h3>
-                        </div>
-                    </Link>
-                    <Link className="my-4" href="/motherBoard">
+                    <Link className="my-4" href="PCcomponents/motherBoard">
                         <div className="  m-1 text-center">
                             <div className="flex justify-center">
                                 <Image
@@ -62,7 +48,7 @@ const Components = () => {
                             <h3 className="pt-3">Mother Board</h3>
                         </div>
                     </Link>
-                    <Link className="my-4" href="/ram">
+                    <Link className="my-4" href="PCcomponents/ram">
                         <div className="  m-1 text-center">
                             <div className="flex justify-center">
                                 <Image
@@ -76,21 +62,7 @@ const Components = () => {
                             <h3 className="pt-3">Memory (RAM)</h3>
                         </div>
                     </Link>
-                    <Link className="my-4" href="/storage">
-                        <div className="  m-1 text-center">
-                            <div className="flex justify-center">
-                                <Image
-                                    className="rounded"
-                                    src={storage}
-                                    alt="Picture of the author"
-                                    width={100}
-                                    height={100}
-                                    />
-                            </div>
-                            <h3 className="pt-3">Storage</h3>
-                        </div>
-                    </Link>
-                    <Link className="my-4" href="/powerSupply">
+                    <Link className="my-4" href="PCcomponents/powerSupply">
                         <div className="  m-1 text-center">
                             <div className="flex justify-center">
                                 <Image
@@ -104,21 +76,21 @@ const Components = () => {
                             <h3 className="pt-3">Power Supply</h3>
                         </div>
                     </Link>
-                    <Link className="my-4" href="/cooling">
+                    <Link className="my-4" href="PCcomponents/storage">
                         <div className="  m-1 text-center">
                             <div className="flex justify-center">
                                 <Image
                                     className="rounded"
-                                    src={cooling}
+                                    src={storage}
                                     alt="Picture of the author"
                                     width={100}
                                     height={100}
                                     />
                             </div>
-                            <h3 className="pt-3">System Cooking</h3>
+                            <h3 className="pt-3">Storage</h3>
                         </div>
                     </Link>
-                    <Link className="my-4" href="/gaming">
+                    <Link className="my-4" href="PCcomponents/monitor">
                         <div className="  m-1 text-center">
                             <div className="flex justify-center">
                                 <Image
@@ -130,6 +102,34 @@ const Components = () => {
                                     />
                             </div>
                             <h3 className="pt-3">Monitors</h3>
+                        </div>
+                    </Link>
+                    <Link className="my-4" href="PCcomponents/graphicsCard">
+                        <div className="  m-1 text-center">
+                            <div className="flex justify-center">
+                                <Image
+                                    className="rounded"
+                                    src={graphicsCard}
+                                    alt="Picture of the author"
+                                    width={100}
+                                    height={100}
+                                    />
+                            </div>
+                            <h3 className="pt-3">Graphics Card</h3>
+                        </div>
+                    </Link>
+                    <Link className="my-4" href="PCcomponents/cooler">
+                        <div className="  m-1 text-center">
+                            <div className="flex justify-center">
+                                <Image
+                                    className="rounded"
+                                    src={cooling}
+                                    alt="Picture of the author"
+                                    width={100}
+                                    height={100}
+                                    />
+                            </div>
+                            <h3 className="pt-3">System Cooler</h3>
                         </div>
                     </Link>
                   </div>
