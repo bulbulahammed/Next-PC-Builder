@@ -8,7 +8,7 @@ PC Builder is a dynamic and modern web application built on the latest Next.js f
 ## Live Site
 
 Visit the live site at:
-[PC Builder](https://visionary-hummingbird-cdefa0.netlify.app//)
+[PC Builder](https://visionary-hummingbird-cdefa0.netlify.app)
 
 ## GitHub Repositories
 
