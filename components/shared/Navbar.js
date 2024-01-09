@@ -1,10 +1,13 @@
 import Logo from "@/assets/images/logo.png";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 
 
 
 const Navbar = () => {
+    const { data: session } = useSession()
+    console.log("Session From Navbar",session);
     return (
         <div className="navbar">
             <div className="navbar-start">
@@ -65,7 +68,15 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button className="btn bg-white rounded text-black hover:text-white">Login</button>
+                {
+                    session?.user?(
+                      <Link href="/login">
+                         <button className="btn bg-white rounded text-black hover:text-white">Login</button>
+                     </Link>
+                    ):(
+                        <button  className="btn bg-white rounded text-black hover:text-white" onClick={()=> signOut()}>Log Out</button>
+                    )
+                }
             </div>
         </div>
     );
