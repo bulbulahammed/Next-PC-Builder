@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { FaGithub, FaGoogle } from "react-icons/fa";
+import { FaFacebook, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
     return (
@@ -8,49 +7,37 @@ const Login = () => {
                 <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
                     Sign in to your account
                 </h2>
-                <p className="mt-2 text-center text-sm text-gray-600 max-w">
-                    Or
-                    <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
-                        create an account
-                    </a>
-                </p>
             </div>
-
             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
                 <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
                     <form className="space-y-6" action="#" method="POST">
                         <div>
-                            <label for="email" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                                 Email address
                             </label>
                             <div className="mt-1">
-                                <input id="email" name="email" type="email" autocomplete="email" required
+                                <input id="email" name="email" type="email" autoComplete="email" required
                                     className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-white text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                     placeholder="Enter your email address"/>
                             </div>
                         </div>
-
                         <div>
-                            <label for="password" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                                 Password
                             </label>
                             <div className="mt-1">
-                                <input id="password" name="password" type="password" autocomplete="current-password" required
+                                <input id="password" name="password" type="password" autoComplete="current-password" required
                                     className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-white text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                     placeholder="Enter your password"/>
                             </div>
                         </div>
-
                         <div>
                             <button type="submit"
-                                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-
-                                Sign in
+                                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Sign in
                             </button>
                         </div>
                     </form>
                     <div className="mt-6">
-
                         <div className="relative">
                             <div className="absolute inset-0 flex items-center">
                                 <div className="w-full border-t border-gray-300"></div>
@@ -61,19 +48,12 @@ const Login = () => {
                                 </span>
                             </div>
                         </div>
-
                         <div className="mt-6 grid grid-cols-2 gap-3">
-                            <div>
-                                <Link href="/"
-                                    className="w-full flex items-center justify-center px-8 py-3 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
-                                   <FaGithub />
-                                </Link>
+                            <div className="w-full flex items-center justify-center px-8 py-3 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                                <FaFacebook onClick={()=>signIn("facebook",{callbackUrl:"http://localhost:3000/"})} />
                             </div>
-                            <div>
-                                <Link href="/"
-                                    className="w-full flex items-center justify-center px-8 py-3 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
-                                    <FaGoogle />
-                                </Link>
+                            <div className="w-full flex items-center justify-center px-8 py-3 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                                <FaGoogle  onClick={()=>signIn("google",{callbackUrl:"http://localhost:3000/"})} />
                             </div>
                         </div>
                     </div>
