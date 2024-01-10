@@ -1,4 +1,6 @@
-import { FaFacebook, FaGoogle } from "react-icons/fa";
+import { signIn } from "next-auth/react";
+import { FaGithub, FaGoogle } from "react-icons/fa";
+import RootLayout from "../../components/Layouts/RootLayout";
 
 const Login = () => {
     return (
@@ -16,7 +18,7 @@ const Login = () => {
                                 Email address
                             </label>
                             <div className="mt-1">
-                                <input id="email" name="email" type="email" autoComplete="email" required
+                                <input id="email" name="email" type="email" autoComplete="email"  required
                                     className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-white text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                     placeholder="Enter your email address"/>
                             </div>
@@ -48,13 +50,17 @@ const Login = () => {
                                 </span>
                             </div>
                         </div>
-                        <div className="mt-6 grid grid-cols-2 gap-3">
-                            <div className="w-full flex items-center justify-center px-8 py-3 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
-                                <FaFacebook onClick={()=>signIn("facebook",{callbackUrl:"http://localhost:3000/"})} />
-                            </div>
-                            <div className="w-full flex items-center justify-center px-8 py-3 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
-                                <FaGoogle  onClick={()=>signIn("google",{callbackUrl:"http://localhost:3000/"})} />
-                            </div>
+                        <div className="mt-6 grid grid-cols-2 gap-3">                            
+                                <button
+                                    className="w-full flex items-center justify-center px-8 py-3 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
+                                onClick={()=>signIn("github",{callbackUrl:"http://localhost:3000/"})} >
+                                    <FaGithub />
+                                </button>
+                                <button className="w-full flex items-center justify-center px-8 py-3 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
+                                onClick={()=>signIn("google",{callbackUrl:"http://localhost:3000/"})} >
+                                    <FaGoogle/>
+                                </button>
+
                         </div>
                     </div>
                 </div>
@@ -64,3 +70,10 @@ const Login = () => {
 };
 
 export default Login;
+
+
+Login.getLayout = function(page){
+    return(
+      <RootLayout>{page}</RootLayout>
+    )
+  }
