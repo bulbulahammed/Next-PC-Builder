@@ -29,8 +29,10 @@ const Banner = () => {
             <Image
                 src={PC}
                 alt="Picture of the author"
-                width={300}
-                height={300}
+                height={0}
+                width={0}
+                priority={true}
+                style={{width:'300px', height: "auto" }}
                 />
             </div>
             <div className="text-left w-1/3 md:block hidden">

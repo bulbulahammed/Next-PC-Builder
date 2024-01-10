@@ -39,9 +39,11 @@ const Navbar = () => {
                     <Link href="/">
                         <Image
                             src={Logo}
-                            width={200}
-                            height={200}
                             alt="Logo"
+                            height={0}
+                            width={0}
+                            priority={true}
+                            style={{width:'200px', height: "auto" }}
                         />
                     </Link>
                 </div>
@@ -70,11 +72,14 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     session?.user?(
+                        <button  className="btn bg-white rounded text-black hover:text-white" onClick={()=> signOut()}>
+                            Log Out
+                        </button>
+                    ):(                        
                       <Link href="/login">
-                         <button className="btn bg-white rounded text-black hover:text-white">Login</button>
+                          <button className="btn bg-white rounded text-black hover:text-white">Login</button>
                      </Link>
-                    ):(
-                        <button  className="btn bg-white rounded text-black hover:text-white" onClick={()=> signOut()}>Log Out</button>
+                 
                     )
                 }
             </div>
