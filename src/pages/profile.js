@@ -1,9 +1,17 @@
 
+import auth from "@/firebase/firebase.auth.js";
 import { useSession } from "next-auth/react";
 import Image from 'next/image';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import RootLayout from "../../components/Layouts/RootLayout";
 const Profile = () => {
     const { data: session } = useSession();
+
+    const [user, loading, error] = useAuthState(auth);
+
+    console.log("User From Profile Page:",user)
+
+
     const avatar = session?.user?.image;
     return (
             <section className=" bg-[#071e34] flex font-medium items-center justify-center h-screen">
