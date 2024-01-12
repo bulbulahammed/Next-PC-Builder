@@ -72,7 +72,7 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     session?.user?(
-                        <button  className="btn bg-white rounded text-black hover:text-white" onClick={()=> signOut()}>
+                        <button  className="btn bg-white rounded text-black hover:text-white" onClick={()=> signOut({ callbackUrl: 'http://localhost:3000' })}>
                             Log Out
                         </button>
                     ):(                        

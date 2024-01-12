@@ -1,8 +1,23 @@
+import auth from "@/firebase/firebase.auth.js";
 import { signIn } from "next-auth/react";
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useForm } from "react-hook-form";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import RootLayout from "../../components/Layouts/RootLayout";
 
 const Login = () => {
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useCreateUserWithEmailAndPassword(auth);
+    const {
+        register,
+        handleSubmit,
+      } = useForm()
+
+      const onSubmit = (data) => {createUserWithEmailAndPassword(data.email,data.password)}
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -12,13 +27,13 @@ const Login = () => {
             </div>
             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
                 <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                    <form className="space-y-6" action="#" method="POST">
+                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                                 Email address
                             </label>
                             <div className="mt-1">
-                                <input id="email" name="email" type="email" autoComplete="email"  required
+                                <input  {...register("email", { required: true })}  id="email" name="email" type="email" autoComplete="email"  required
                                     className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-white text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                     placeholder="Enter your email address"/>
                             </div>
@@ -28,7 +43,7 @@ const Login = () => {
                                 Password
                             </label>
                             <div className="mt-1">
-                                <input id="password" name="password" type="password" autoComplete="current-password" required
+                                <input  {...register("password", { required: true })}  id="password" name="password" type="password" autoComplete="current-password" required
                                     className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-white text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                     placeholder="Enter your password"/>
                             </div>
@@ -51,16 +66,15 @@ const Login = () => {
                             </div>
                         </div>
                         <div className="mt-6 grid grid-cols-2 gap-3">                            
-                                <button
-                                    className="w-full flex items-center justify-center px-8 py-3 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
+                            <button
+                                className="w-full flex items-center justify-center px-8 py-3 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
                                 onClick={()=>signIn("github",{callbackUrl:"http://localhost:3000/"})} >
-                                    <FaGithub />
-                                </button>
-                                <button className="w-full flex items-center justify-center px-8 py-3 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
+                                <FaGithub />
+                            </button>
+                            <button className="w-full flex items-center justify-center px-8 py-3 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
                                 onClick={()=>signIn("google",{callbackUrl:"http://localhost:3000/"})} >
-                                    <FaGoogle/>
-                                </button>
-
+                                <FaGoogle/>
+                            </button>
                         </div>
                     </div>
                 </div>
