@@ -1,32 +1,30 @@
 import auth from "@/firebase/firebase.auth.js";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import RootLayout from "../../components/Layouts/RootLayout";
 
-const Login = () => {
+const SignUp = () => {
     const [
-        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
         user,
         loading,
         error,
-      ] = useSignInWithEmailAndPassword(auth);
+      ] = useCreateUserWithEmailAndPassword(auth);
     const {
         register,
         handleSubmit,
       } = useForm()
 
-      const onSubmit = (data) => {signInWithEmailAndPassword(data.email,data.password)}
-
-      
+      const onSubmit = (data) => {createUserWithEmailAndPassword(data.email,data.password)}
 
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
                 <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-                    Sign in to your account
+                    Create your account
                 </h2>
             </div>
             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -54,13 +52,13 @@ const Login = () => {
                         </div>
                         <div>
                             <button type="submit"
-                                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Sign in
+                                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Sign Up
                             </button>
                         </div>
                     </form>
                     <div className="mt-6">
                         <div className="text-center py-4">
-                            <span>Do not have account? <Link href={"/signup"}>Sign Up</Link></span>
+                            <span>Already have account? <Link href={"/login"}>Login</Link></span>
                         </div>
                         <div className="relative">
                             <div className="absolute inset-0 flex items-center">
@@ -72,7 +70,6 @@ const Login = () => {
                                 </span>
                             </div>
                         </div>
-
                         <div className="mt-6 grid grid-cols-2 gap-3">                            
                             <button
                                 className="w-full flex items-center justify-center px-8 py-3 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
@@ -84,6 +81,11 @@ const Login = () => {
                                 <FaGoogle/>
                             </button>
                         </div>
+                        <div className="text-center py-4">
+                            <Link href={"/signup"}>
+                                <p>Do not have account? </p>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -91,10 +93,10 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignUp;
 
 
-Login.getLayout = function(page){
+SignUp.getLayout = function(page){
     return(
       <RootLayout>{page}</RootLayout>
     )
