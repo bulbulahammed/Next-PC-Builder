@@ -1,26 +1,20 @@
 import auth from "@/firebase/firebase.auth.js";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
+import { useState } from "react";
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useForm } from "react-hook-form";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import RootLayout from "../../components/Layouts/RootLayout";
 
 const Login = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [
         signInWithEmailAndPassword,
         user,
         loading,
         error,
       ] = useSignInWithEmailAndPassword(auth);
-    const {
-        register,
-        handleSubmit,
-      } = useForm()
-
-      const onSubmit = (data) => {signInWithEmailAndPassword(data.email,data.password)}
-
-      
 
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -31,15 +25,21 @@ const Login = () => {
             </div>
             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
                 <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                    <form className="space-y-6">
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                                 Email address
                             </label>
                             <div className="mt-1">
-                                <input  {...register("email", { required: true })}  id="email" name="email" type="email" autoComplete="email"  required
+                                <input  
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)} 
+                                    autoComplete="email"
+                                    placeholder="Enter your email address"
+                                    required
                                     className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-white text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                                    placeholder="Enter your email address"/>
+                                   />
                             </div>
                         </div>
                         <div>
@@ -47,15 +47,45 @@ const Login = () => {
                                 Password
                             </label>
                             <div className="mt-1">
-                                <input  {...register("password", { required: true })}  id="password" name="password" type="password" autoComplete="current-password" required
+                                <input 
+                                    type="password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    autoComplete="current-password" 
+                                    placeholder="Enter your password"
+                                    required
                                     className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-white text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                                    placeholder="Enter your password"/>
+                                    />
                             </div>
                         </div>
                         <div>
-                            <button type="submit"
+                            {
+                                loading? (<button className="btn group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                <span className="loading loading-spinner"></span>
+                                loading
+                              </button>):(
+                              <button onClick={() => signInWithEmailAndPassword(email, password)}
                                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Sign in
-                            </button>
+                            </button>)
+                            }
+                            {
+                                error && 
+                                <div className="text-center">
+                                    <p className="text-red-600">Something Went Wrong!</p>
+                                </div>
+                            }
+                            {
+                                user && 
+                                <div className="text-center">
+                                    <p className="text-green-600">You Are Welcome</p>
+                                </div>
+                            }
+                            <div>
+                                <p>Registered User: {user && <span>{user.user.email}</span>}</p>
+                            </div>
+                            <div className="text-center">
+                                <p>{user?.user.email}</p>
+                            </div>
                         </div>
                     </form>
                     <div className="mt-6">
