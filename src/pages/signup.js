@@ -51,9 +51,22 @@ const SignUp = () => {
                             </div>
                         </div>
                         <div>
-                            <button type="submit"
+                            {
+                                loading? (<button className="btn group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                <span className="loading loading-spinner"></span>
+                                loading
+                              </button>):(<button type="submit"
                                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Sign Up
-                            </button>
+                            </button>)
+                            }
+                        </div>
+                        <div>
+                        {
+                                error && 
+                                <div className="text-center">
+                                    <p className="text-red-600">Something Went Wrong!</p>
+                                </div>
+                            }
                         </div>
                     </form>
                     <div className="mt-6">
